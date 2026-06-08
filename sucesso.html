@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva Confirmada! | Foz Turismo</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .success-container {
+            max-width: 550px;
+            margin: 80px auto;
+            padding: 40px 30px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+        }
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #d4edda;
+            color: #28a745;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 0 auto 20px;
+        }
+        h2 {
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+        .ticket-box {
+            background-color: #f8f9fa;
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            margin: 25px 0;
+            text-align: left;
+            border-radius: 4px;
+        }
+        .ticket-box p {
+            margin: 8px 0;
+            color: #555;
+        }
+        .ticket-box strong {
+            color: #333;
+        }
+        .btn-home {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s;
+            margin-top: 15px;
+        }
+        .btn-home:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="success-container">
+        <div class="success-icon">✓</div>
+        <h2>Reserva Confirmada!</h2>
+        <p>Parabéns! Sua solicitação foi processada com sucesso. Os detalhes do voucher foram enviados para o seu e-mail.</p>
+        
+        <div class="ticket-box">
+            <p><strong>Código da Reserva:</strong> <span id="reserva-codigo">FT-94827</span></p>
+            <p><strong>Cliente:</strong> <span id="reserva-nome">Viajante</span></p>
+            <p><strong>Destino:</strong> <span id="reserva-destino">Atração Selecionada</span></p>
+            <p><strong>Status:</strong> <span style="color: #28a745; font-weight: 600;">Garantido</span></p>
+        </div>
+
+        <p style="font-size: 14px; color: #777; margin-bottom: 20px;">Apresente o código acima na bilheteria do parque ou utilize o QR Code enviado por e-mail.</p>
+        
+        <a href="index.html" class="btn-home">Voltar para o Início</a>
+    </div>
+
+    <script>
+        // Script inteligente para capturar dados que vêm do formulário
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Pega o nome do cliente e remove espaços extras
+        const nomeCliente = urlParams.get('nome');
+        const destinoSelecionado = urlParams.get('destino');
+
+        if (nomeCliente) {
+            document.getElementById('reserva-nome').textContent = decodeURIComponent(nomeCliente);
+        }
+        if (destinoSelecionado) {
+            document.getElementById('reserva-destino').textContent = decodeURIComponent(destinoSelecionado);
+        }
+
+        // Gera um número de reserva aleatório para simular um sistema real
+        const codigoAleatorio = "FT-" + Math.floor(100000 + Math.random() * 900000);
+        document.getElementById('reserva-codigo').textContent = codigoAleatorio;
+    </script>
+
+</body>
+</html>
