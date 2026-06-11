@@ -84,7 +84,6 @@
     </div>
 
     <script>
-        // Script inteligente para capturar dados que vêm do formulário
         const urlParams = new URLSearchParams(window.location.search);
         
         // Pega o nome do cliente e remove espaços extras
@@ -98,7 +97,6 @@
             document.getElementById('reserva-destino').textContent = decodeURIComponent(destinoSelecionado);
         }
 
-        // Gera um número de reserva aleatório para simular um sistema real
         const codigoAleatorio = "FT-" + Math.floor(100000 + Math.random() * 900000);
         document.getElementById('reserva-codigo').textContent = codigoAleatorio;
     </script>
